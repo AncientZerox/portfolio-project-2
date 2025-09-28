@@ -1,0 +1,401 @@
+*{
+
+    scroll-behavior: smooth;  /* General tweeks */
+    margin:0;
+    padding:0;
+}
+
+
+
+    /* Fonts used in this project:  
+        - font-family: "Comic Relief", system-ui;
+        - font-family: 'Pacifico', cursive;
+    */
+
+
+    
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allows items to move to next line on small screens */
+    background: rgba(17, 27, 42, 0.8);
+    backdrop-filter: blur(6px);
+    padding: 0.5em 1em;
+    position: sticky; /* Makes nav stick to top */
+    top: 0;
+}
+.welcome-text{
+
+    color:white;
+    font-family: 'Pacifico', cursive;
+    display:inline-block;
+    margin-left:0.2em;
+    margin-top:0.25em;
+    transition: color 0.5s ease; /* H3 element requires color attribite also  */
+    font-size: clamp(2rem, 2vw, 3.6rem);
+    
+}
+
+.welcome-text:hover{
+
+    color: #00C853;          
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius:10%;
+    cursor:pointer;
+}
+
+nav ul {
+    display: flex;
+    gap: 1em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap; /* Nav items wrap when screen is too small */
+}
+
+nav ul li {
+
+    color:white;                                
+    list-style:none;
+    display:inline-block;                                   
+    font-size: clamp(1rem, 2vw, 2.6rem);
+    padding: 0.5em 0.5em;
+    font-family: 'Pacifico', cursive;
+    cursor: pointer;
+}
+
+nav ul li:nth-child(4){
+
+margin-right:0.5em; /* Screen-specific fix: adjusts last nav item spacing on my screen resolution */
+
+}
+
+nav ul li a{
+
+    text-decoration: none;
+    color:white;
+    transition: 0.5s ease;
+}
+
+
+
+nav ul li a:hover {
+
+    color: #00C853;          
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius:10%;  
+    text-decoration: underline;
+}
+
+
+        /* Hero Section */  /* AKA the main section */
+
+
+#hero {
+    background: linear-gradient(180deg, #0D1B2A, #004D40); /* deep navy + teal */
+    color: white;
+    text-align: center;
+    padding: 6em 2em; /* space inside */
+}
+  
+.hero-content h1 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 0.5em;
+    font-family: 'Pacifico', cursive;
+}
+    
+.hero-content h1:hover{
+
+    cursor:default;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    margin-bottom: 1.5em;
+    opacity: 0.9;
+    font-family: "Comic Relief", system-ui;
+}
+
+.hero-content p:hover{
+
+    cursor:default;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.7em 1.5em;
+    background-color: #00C853; /* green accent */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    transition: 0.3s ease;
+    font-family: "Comic Relief", system-ui;
+}
+  
+.btn:hover {
+    background-color: #009624; /* darker green */
+}
+  
+
+/* About Section */
+
+
+#about {
+    background:linear-gradient(180deg,#004D40,#beffc3 ) ; /* very light green */
+    padding: 4em 2em;
+    text-align: center;
+}
+  
+  
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;     /* center the content */
+    
+}
+  
+.about-container h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    margin-bottom: 1em;
+    color: #0D1B2A;     /* same navy as nav */
+    font-family: 'Pacifico', cursive;
+    position: relative;
+    display: inline-block;
+}
+  
+  /* Optional underline accent under heading */
+.about-container h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #00C853;  /* green accent */
+    margin: 0.5em auto 0;
+    border-radius: 2px;
+}
+  
+.about-container p {
+    font-size: clamp(1.2rem, 2.7vw, 1.4rem);
+    line-height: 1.6;
+    color: #252222;    /* dark grey for readability */
+    text-align: justify;    /* makes text blocks cleaner */
+    font-family: "Comic Relief", system-ui;
+}
+
+#features {
+    background: linear-gradient(180deg, #beffc3, #9dffa5); /* soft green fading to very light green */
+    padding: 4em 2em;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    color: #1B5E20; /* deep green for contrast */
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.features-list li {
+    background: rgba(0, 77, 64, 0.08); /* subtle green tint */
+    margin: 1em 0;
+    padding: 1em 1.5em;
+    border-radius: 12px;
+    font-size: 1.2em;
+    color: #2C3E50; /* dark grey for readability */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family:'comic relief', system-ui;
+}
+
+.features-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    background: rgba(0, 77, 64, 0.15);
+}
+  
+#gallery {
+    background: linear-gradient(180deg, #0D1B2A, #004D40); /* dark navy → teal */
+    color: white;
+    padding: 4em 2em;
+    text-align: center;
+}
+
+#gallery h2 {
+    font-size: 2.5em;
+    margin-bottom: 1.5em;
+    color: #beffc3; /* matches your About section’s light green for continuity */
+}
+
+.gallery-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.gallery-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* responsive grid */
+    gap: 1.5em;
+}
+
+.gallery-images img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-images img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Lightbox container (hidden by default) */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+
+/* Enlarged image */
+.lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+/* Show when targeted */
+.lightbox:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+footer {
+    background: #0D1B2A; /* dark navy */
+    color: white;
+    padding: 1.5em 2em;
+    font-family: "Comic Relief", system-ui;
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    border-top: 2px solid #00BFA6;
+
+    display: flex;             /* enables horizontal layout */
+    align-items: center;       /* aligns button & text vertically */
+    justify-content: space-between; /* keeps button left, text right */
+    gap: 1em;
+}
+
+/* Footer text */
+footer p {
+    margin: 0; 
+    line-height: 1.5;
+    opacity: 0.85;
+    text-align: right; /* keeps text neat when it's long */
+}
+
+/* Button styling */
+footer button {
+    background: #00BFA6;
+    color: #0D1B2A;
+    border: none;
+    border-radius: 2em;
+    padding: 0.6em 1.5em;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 191, 166, 0.4);
+}
+
+/* Hover effect */
+footer button:hover {
+    background: #00E6BE;
+    box-shadow: 0 6px 15px rgba(0, 230, 190, 0.6);
+    transform: translateY(-2px);
+}
+
+/* Active click effect */
+footer button:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 6px rgba(0, 191, 166, 0.4);
+}
+
+.footer-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;          /* space between spans */
+    justify-content: flex-start; /* no big space between first and last */
+    flex-wrap: wrap;      /* allow text to wrap on small screens */
+}
+
+
+
+/* Arrow style */
+.footer-text .arrow {
+    font-size: 1.2em;
+    color: #00BFA6; /* accent color */
+    font-weight: bold;
+}
+
+.replace{
+    display: none; /* hides "Replace" text on larger screens */
+}
+
+.with{
+    display:none; /* hides "with" text on larger screens */
+}
+
+/* Responsive adjustments */
+
+/* Hide copyright below 1285px */
+@media (max-width: 1285px) {
+    .footer-text .copy{
+        display: none;
+    }
+}
+
+@media (max-width: 786px) {
+    .footer-text .remove {
+        display: none;
+    }
+}
+
+@media (max-width:623px){
+
+    .remain{
+        display: none; /* hides "Remain" text on very small screens */
+    }
+
+    .replace{
+        display: inline; /* shows "Replace" text on very small screens */
+    }
+    
+}
+
+@media(max-width:429px){
+
+    .replace{
+        display: none; /* hides "Replace" text on very small screens */
+    }
+
+    .with{
+        display: inline; /* shows "with" text on very small screens */
+    }
+
+}
