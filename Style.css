@@ -3,6 +3,7 @@
     scroll-behavior: smooth;  /* General tweeks */
     margin:0;
     padding:0;
+
 }
 
 
@@ -11,20 +12,26 @@
         - font-family: "Comic Relief", system-ui;
         - font-family: 'Pacifico', cursive;
     */
+body{
+    z-index:0;
+    background-color: rgb(17,27,42);
+}
 
-
-    
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allows items to move to next line on small screens */
-    background: rgba(17, 27, 42, 0.8);
+    flex-wrap: wrap;
+    background: rgba(17, 27, 42, 0.8); /* semi-transparent */
     backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px); /* Safari support */
     padding: 0.5em 1em;
-    position: sticky; /* Makes nav stick to top */
+    position: sticky;
     top: 0;
+    z-index: 100;
+    animation:fadeSlideIn 1s ease-in-out;
 }
+
 .welcome-text{
 
     color:white;
@@ -71,14 +78,21 @@ margin-right:0.5em; /* Screen-specific fix: adjusts last nav item spacing on my 
 
 }
 
-nav ul li a{
-
+nav ul li a {
     text-decoration: none;
-    color:white;
-    transition: 0.5s ease;
-}
+    color: white;
+    opacity: 0; /* start hidden */
+    animation-name: fadeSlideIn;
+    animation-duration: 0.8s;         /* how long animation runs */
+    animation-fill-mode: forwards;    /* keep final state */
+    animation-timing-function: ease-out; /* smooth easing */
+  }
+  
 
-
+nav ul li:nth-child(1) a { animation-delay: 0.6s; }
+nav ul li:nth-child(2) a { animation-delay: 0.8s; }
+nav ul li:nth-child(3) a { animation-delay: 1.1s; }
+nav ul li:nth-child(4) a { animation-delay: 1.3s; }
 
 nav ul li a:hover {
 
@@ -103,6 +117,9 @@ nav ul li a:hover {
     font-size: clamp(1.8rem, 4vw, 3rem);
     margin-bottom: 0.5em;
     font-family: 'Pacifico', cursive;
+    opacity: 0; /* start hidden */
+    animation: fadeSlideIn 1s ease-in-out forwards;
+    animation-delay: 1.5s;
 }
     
 .hero-content h1:hover{
@@ -115,6 +132,10 @@ nav ul li a:hover {
     margin-bottom: 1.5em;
     opacity: 0.9;
     font-family: "Comic Relief", system-ui;
+    z-index: 50;
+    opacity: 0; /* start hidden */
+    animation: fadeSlideInX 1s ease-in-out forwards;
+    animation-delay: 2.2s;
 }
 
 .hero-content p:hover{
@@ -132,6 +153,9 @@ nav ul li a:hover {
     font-size: clamp(0.9rem, 2vw, 1.1rem);
     transition: 0.3s ease;
     font-family: "Comic Relief", system-ui;
+    opacity: 0; /* start hidden */
+    animation: fadeSlideIn 1s ease-in-out forwards;
+    animation-delay: 2.8s;
 }
   
 .btn:hover {
@@ -162,6 +186,8 @@ nav ul li a:hover {
     font-family: 'Pacifico', cursive;
     position: relative;
     display: inline-block;
+    z-index: 50;
+    
 }
   
   /* Optional underline accent under heading */
@@ -173,6 +199,7 @@ nav ul li a:hover {
     background-color: #00C853;  /* green accent */
     margin: 0.5em auto 0;
     border-radius: 2px;
+    z-index: 50;
 }
   
 .about-container p {
@@ -181,6 +208,8 @@ nav ul li a:hover {
     color: #252222;    /* dark grey for readability */
     text-align: justify;    /* makes text blocks cleaner */
     font-family: "Comic Relief", system-ui;
+    position: relative;     /* Ensure it doesn't interfere with stacking context */
+    z-index: 0;             /* Keeps it below the nav */
 }
 
 #features {
@@ -399,3 +428,38 @@ footer button:active {
     }
 
 }
+
+/* Animations */
+
+@keyframes fadeSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-20px); /* start slightly above */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* end at normal position */
+    }
+  }
+
+@keyframes fadeSlideInX {
+    0% {
+      opacity: 0;
+      transform: translateX(20px); /* start slightly above */
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0); /* end at normal position */
+    }
+}
+ 
+@keyframes fadeSlideInY {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px); /* start slightly above */
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0); /* end at normal position */
+    }
+  }
